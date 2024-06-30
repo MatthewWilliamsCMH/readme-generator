@@ -113,7 +113,7 @@ ${data.contributing}
 ${data.tests}
 
 ## Questions
-You can see my github repositories at [${data.github}](https://${data.github}).  
+You can see my github repositories at [${data.github}](https://github.com/${data.github}/).  
 Drop me a line at [${data.email}](mailto:${data.email}).`;
 };
 

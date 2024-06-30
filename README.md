@@ -1,8 +1,11 @@
-# 1
+# Readme Generator
 
+## License
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+Mozilla Public License 2.0
 
 ## Description
-2
+This is a description.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,17 +16,17 @@
 - [Questions](#questions)
 
 ## Installation
-3
+No installation necessary. This is a CLI app.
 
 ## Usage
-4
+Usage information.
 
 ## Contributing
-5
+How to contribute to the project.
 
 ## Tests
-6
+How to test your contributions to the project.
 
 ## Questions
-You can see my github repositories at [7](https://7).  
-Drop me a line at [8](mailto:8).
+You can see my github repositories at [MatthewWilliamsCMH@icloud.com](https://github.com/MatthewWilliamsCMH/).  
+Drop me a line at [MatthewWilliamsCMH@icloud.com](mailto:MatthewWilliamsCMH@icloud.com).
