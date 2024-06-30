@@ -8,9 +8,9 @@ const questions = [
     "Project Description:",
     "Project Installation Instructions:",
     "Project Usage Information:",
-    "Project License Information:",
     "Project Contribution Guidelines:",
     "Project Test Instructions:",
+    "Project License Information:",
     "Your Github Username:",
     "Your Email Address:"
 ];
@@ -50,27 +50,17 @@ function init () {
             },
             {
                 name: "contributing",
-                message: questions[5],
+                message: questions[4],
                 type: "input"
             },
             {
                 name: "tests",
-                message: questions[6],
-                type: "input"
-            },
-            {
-                name: "github",
-                message: questions[7],
-                type: "input"
-            },
-            {
-                name: "email",
-                message: questions[8],
+                message: questions[5],
                 type: "input"
             },
             {
                 name: "license",
-                message: questions[4],
+                message: questions[6],
                 type: "list",
                 choices: [
                     "", 
@@ -86,6 +76,16 @@ function init () {
                     "Mozilla Public License 2.0", 
                     "The Unilicense"
                 ]
+            },
+            {
+                name: "github",
+                message: questions[7],
+                type: "input"
+            },
+            {
+                name: "email",
+                message: questions[8],
+                type: "input"
             }
         ])
         .then ((responses) => {
