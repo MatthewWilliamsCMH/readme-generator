@@ -1,32 +1,29 @@
-({title, license, description, installation, usage, contributing, tests, github, email}) =>
-    `# ${title}
-    
-    ## License
-    ${license} 
-    
-    ## Description
-    ${description}
-    
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contributing](#contributing)
-    - [Tests](#tests)
-    - [Questions](#questions)
-    
-    ## Installation
-    ${installation}
-    
-    ## Usage
-    ${usage}
-    
-    ## Contributing
-    ${contributing}
-    
-    ## Tests
-    ${tests}
-    
-    ## Questions
-    You can see my github repositories at ${github}.
-    Drop me a line at ${email}.`
+# 1
+
+
+## Description
+2
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+3
+
+## Usage
+4
+
+## Contributing
+5
+
+## Tests
+6
+
+## Questions
+You can see my github repositories at [7](https://7).  
+Drop me a line at [8](mailto:8).

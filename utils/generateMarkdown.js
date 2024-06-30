@@ -1,9 +1,10 @@
-let newLicense = ""
+//Code provided for this homework follow the live code.
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(data) {
-  switch (data) {
+//Using the license value from index.js, retrieve a badge image from the internet.
+//This and the function that follows it can be combined by returning one string with
+//both the badge image and the url
+function renderLicenseBadge (licenseEl) {
+  switch (licenseEl) {
     case "":
       return "";
     case "Apache License 2.0": 
@@ -31,12 +32,11 @@ function renderLicenseBadge(data) {
     default:
       return "";
   }
-}
+};
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(data) {
-  switch (data) {
+//using the license value from index.js, retrieve a badge image
+function renderLicenseLink (licenseEl) {
+  switch (licenseEl) {
     case "":
       return "";
     case "Apache License 2.0": 
@@ -64,37 +64,80 @@ function renderLicenseLink(data) {
     default:
       return "";
   }
-}
+};
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(badgeStr, linkStr, data) {
+//Combine the badge-image link and the url into a single string.
+//This would be unnecessary if the two functions above were condensed.
+function renderLicenseSection (badgeStr, linkStr, data) {
   if (badgeStr !== "" && linkStr !== "") {
-    licenseStr = `# License\n${badgeStr}${linkStr}\n${data}`;
+    licenseStr = `## License\n${badgeStr}${linkStr}\n${data}\n`;
     return licenseStr;
   } else {
     licenseStr = "";
   }
-}
+};
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  const newBadge = renderLicenseBadge(data);
-  const newLink = renderLicenseLink(data);
-  const newLicense = renderLicenseSection(newBadge, newLink, data);
-  console.log(newLicense);
-  return `# ${data.title}
+//Calls the functions above to gather data for the license badge.
+function generateMarkdown (data) {
+  const licenseEl = data.license;
+  const newBadge = renderLicenseBadge (licenseEl);
+  const newLink = renderLicenseLink (licenseEl);
+  const newLicense = renderLicenseSection (newBadge, newLink, licenseEl);
 
-`;
-}
+//The string-literal text below has to be flush left so that it will be flush left in the readme.
+//Two spaces follow the github line to force a linebreak.
+return `# ${data.title}
 
+${licenseStr !== "" ? newLicense : ""}
+## Description
+${data.description}
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+${data.installation}
+
+## Usage
+${data.usage}
+
+## Contributing
+${data.contributing}
+
+## Tests
+${data.tests}
+
+## Questions
+You can see my github repositories at [${data.github}](https://${data.github}).  
+Drop me a line at [${data.email}](mailto:${data.email}).`;
+};
+
+//Exports the complete markdown file to index.js so it can be written to the disk.
 module.exports = generateMarkdown;
 
+//Supplied Code
+// // TODO: Create a function that returns a license badge based on which license is passed in
+// // If there is no license, return an empty string
+// function renderLicenseBadge(license) {}
 
+// // TODO: Create a function that returns the license link
+// // If there is no license, return an empty string
+// function renderLicenseLink(license) {}
 
-//what's happening here is that the first three functions are accepting data into the variable "license,"
-//which, I assume, is being created in the index.js file, and creating markdown copy to be inserted into the license
-//secton of the readme file. The fourth function is compiling the data into the "license" md text (note the backticks)
-//and then making that variable (which is "generateMarkdown") available to the index.js file through the exports function.
+// // TODO: Create a function that returns the license section of README
+// // If there is no license, return an empty string
+// function renderLicenseSection(license) {}
 
-// How to capture the data from prompt[4] and pass it to the license variable here
+// // TODO: Create a function to generate markdown for README
+// function generateMarkdown(data) {
+//   return `# ${data.title}
+
+// `;
+// }
+
+// module.exports = generateMarkdown;
