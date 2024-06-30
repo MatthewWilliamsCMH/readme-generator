@@ -1,63 +1,88 @@
+let newLicense = ""
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-const newBadge = ""
-// const newBadgeLink
-
-function renderLicenseBadge(license) {
-  switch (license) {
-    case "None":
-      newBadge = "";
-      break;
+function renderLicenseBadge(data) {
+  switch (data) {
+    case "":
+      return "";
     case "Apache License 2.0": 
-      newBadge = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
-      break;
+      return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]";
     case "GNU General Public License v3.0": 
-      newBadge = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
-      break;
+      return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]";
     case "MIT License": 
-      newBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-      break;
+      return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]";
     case "BSD 2-Clause Simplified License": 
-      newBadge = "[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)";
-      break;
+      return "[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)]";
     case "BSD 3-Clause New or Revised License": 
-    newBadge = "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
-    break;
+      return "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)]";
     case "Boost Software License 1.0": 
-      newBadge = "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
-      break;
+      return "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)]";
     case "Creative Commons Zero v1.0 Universal": 
-      newBadge = "[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)";
-      break;
+      return "[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)]";
     case "Eclipse Public License v2.0": 
-      newBadge = "[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)";
-      break;
+      return "[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)]";
     case "GNU Lesser General Public License v3.0": 
-      newBadge = "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)";
-      break;
+      return "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)]";
     case "Mozilla Public License 2.0": 
-      newBadge = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
-      break;
+      return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)]";
     case "The Unilicense": 
-      newBadge = "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
-      break;
+      return "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)]";
     default:
-      newBadge = "";
+      return "";
   }
-
 }
 
-//I did the following in one step, so this is not needed
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-// function renderLicenseLink(license) {}
+function renderLicenseLink(data) {
+  switch (data) {
+    case "":
+      return "";
+    case "Apache License 2.0": 
+      return "(https://opensource.org/licenses/Apache-2.0)";
+    case "GNU General Public License v3.0": 
+      return "(https://www.gnu.org/licenses/gpl-3.0)";
+    case "MIT License": 
+      return "(https://opensource.org/licenses/MIT)";
+    case "BSD 2-Clause Simplified License": 
+      return "(https://opensource.org/licenses/BSD-2-Clause)";
+    case "BSD 3-Clause New or Revised License": 
+      return "(https://opensource.org/licenses/BSD-3-Clause)";
+    case "Boost Software License 1.0": 
+      return "(https://www.boost.org/LICENSE_1_0.txt)";
+    case "Creative Commons Zero v1.0 Universal": 
+      return "(http://creativecommons.org/publicdomain/zero/1.0/)";
+    case "Eclipse Public License v2.0": 
+      return "(https://opensource.org/licenses/EPL-1.0)";
+    case "GNU Lesser General Public License v3.0": 
+      return "(https://www.gnu.org/licenses/lgpl-3.0)";
+    case "Mozilla Public License 2.0": 
+      return "(https://opensource.org/licenses/MPL-2.0)";
+    case "The Unilicense": 
+      return "(http://unlicense.org/)";
+    default:
+      return "";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(badgeStr, linkStr, data) {
+  if (badgeStr !== "" && linkStr !== "") {
+    licenseStr = `# License\n${badgeStr}${linkStr}\n${data}`;
+    return licenseStr;
+  } else {
+    licenseStr = "";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  const newBadge = renderLicenseBadge(data);
+  const newLink = renderLicenseLink(data);
+  const newLicense = renderLicenseSection(newBadge, newLink, data);
+  console.log(newLicense);
   return `# ${data.title}
 
 `;
