@@ -16,7 +16,7 @@ This app helps developers generate high-quality README files in Markdown format 
 - [Questions](#questions)
 
 ## Installation
-As a CLI, README Generator requires no installation, per se, but ensure that index.js and its associated files and folders are contained in the same folder as shown here.
+As a CLI, README Generator requires no installation, per se, but ensure that index.js and its associated files and folders are contained in the same folder as shown here. README Generator depends on the Inquire module available from NPM.
 
 
 ![image of files and folders required by README Generator](./images/files-folders.jpg)
